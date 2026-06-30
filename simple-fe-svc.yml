@@ -5,7 +5,7 @@ metadata:
   name: simple-fe
 
 spec:
-  type: NodePort
+  type: ClusterIP
 
   selector:
     app: simple-fe
@@ -13,4 +13,3 @@ spec:
   ports:
     - port: 80
       targetPort: 80
-      nodePort: 30080
