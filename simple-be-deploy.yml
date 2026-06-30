@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: simple-be
+  labels:
+    app: simple-be
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: simple-be
+
+  template:
+    metadata:
+      labels:
+        app: simple-be
+
+    spec:
+      containers:
+        - name: simple-be
+          image: jbabajohn/simple-be:v2
+
+          ports:
+            - containerPort: 3000
+
+          env:
+            - name: NODE_ENV
+              value: "production"
+
+          

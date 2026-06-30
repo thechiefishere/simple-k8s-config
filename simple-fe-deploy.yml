@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: simple-fe
+  labels:
+    app: simple-fe
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: simple-fe
+
+  template:
+    metadata:
+      labels:
+        app: simple-fe
+
+    spec:
+      containers:
+        - name: simple-fe
+          image: jbabajohn/simple-fe:v2
+
+          ports:
+            - containerPort: 80
+
+          env:
+            - name: NODE_ENV
+              value: "production"
+
+          
